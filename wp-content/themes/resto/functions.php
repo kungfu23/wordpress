@@ -43,10 +43,16 @@ if ( ! function_exists( 'resto_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'resto' ),
-		) );
 
+        function register_my_menus() {
+            register_nav_menus(
+                array(
+                    'header-menu' => __( 'Header Menu' ),
+                    'extra-menu' => __( 'Extra Menu' )
+                )
+            );
+        }
+        add_action( 'init', 'register_my_menus' );
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -154,4 +160,13 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
+}
+
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+
+function special_nav_class ($classes, $item) {
+    if (in_array('current-menu-item', $classes) ){
+        $classes[] = 'active ';
+    }
+    return $classes;
 }

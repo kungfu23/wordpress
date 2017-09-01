@@ -339,7 +339,6 @@ p {
 .block-content-inner {
   background: #e8d9c2;
   width: 956px;
-  padding: 0 5px 0;
   margin: -5px auto 0;
 }
 .block-content {
@@ -1014,7 +1013,7 @@ a:hover.link-brochure  { text-decoration:none; color:#9b8756;}
     display: inline-block;
   }
   footer {
-    width: 1256px;
+    width: auto;
   }
   .block-content-inner,
   .box-header {

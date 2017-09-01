@@ -11,7 +11,11 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-
+            <div id="content">
+                <div class="block-content-inner">
+                    <div class="block-content">
+                        <div class="container">
+                            <div class="row">
 		<?php
 		if ( have_posts() ) : ?>
 
@@ -42,7 +46,11 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
-
+                            </div>
+                        </div>
+                    </div>
+                </div>\
+            </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
